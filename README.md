@@ -3,5 +3,6 @@
 - 책 보며 공부하기
 
 - 24/04/01
-    - 1장~
+    - WpfBasicControlApp1
+	- BikeShop
     
