@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:BikeShop"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary Source="Backgrounds.xaml"/>
     </Application.Resources>
 </Application>
