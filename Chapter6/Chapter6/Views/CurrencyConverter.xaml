@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Chapter6.Views"
       mc:Ignorable="d" 
       xmlns:vm="clr-namespace:Chapter6.ViewModels"
-      d:DesignHeight="200" d:DesignWidth="400"
+      d:DesignHeight="150" d:DesignWidth="300"
       Title="CurrencyConverter">
     <Page.DataContext>
         <vm:CurrencyConverterViewModel/>
@@ -15,15 +15,25 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="Amount in €"/>
-        <TextBox Grid.Column="1" Text="{Binding Euros, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Grid.Row="1" Text="Amount in US$" Margin="0 10 10 10"/>
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Dollars}" Margin="0 10 0 10"/>
+        <TextBlock Text="Currency"/>
+        <TextBlock Grid.Row="1" Text="Amount in €" Margin="0 10 75 10"/>
+        <TextBlock Grid.Row="2" Text="{Binding ResultText}"/>
+
+        <ComboBox Grid.Column="1" SelectedItem="{Binding SelectedCurrency}" ItemsSource="{Binding Currencies}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Title}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Euros, UpdateSourceTrigger=PropertyChanged}" Margin="0 10 0 10"/>
+        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Converted}"/>
     </Grid>
 </Page>
